@@ -1,4 +1,4 @@
-from sdk import *
+from .sdk import *
 import argparse, json
 from requests import Session
 
@@ -10,7 +10,7 @@ def mitmproxy_session():
 
 def cookies_from_env(env_name):
     cookies = {}
-    for cookie in os.environ.get(env_name).split(';'):
+    for cookie in os.environ.get(env_name, "").split(';'):
         if '=' in cookie:
             key, value = cookie.strip().split('=', 1)
             cookies[key] = value
@@ -20,7 +20,7 @@ def init_client(client):
     cookies = cookies_from_env("EXAM_COOKIE")
     for key, value in cookies.items():
         client.cookies.set(key, value)
-    client.headers.update({"X-XSRF-TOKEN": cookies["XSRF-TOKEN"]}) # does this need updating?
+    client.headers.update({"X-XSRF-TOKEN": cookies.get("XSRF-TOKEN", "")})
     return client
 
 def print_json(data):

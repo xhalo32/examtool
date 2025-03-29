@@ -1,0 +1,19 @@
+[project]
+name = "examtool"
+version = "0.1.0"
+description = "A tool for creating and managing exams in Aalto EXAM"
+readme = "README.md"
+keywords = ["exam"]
+
+dependencies = [
+  "requests",
+  "markdown",
+]
+
+[project.scripts]
+examtool = "examtool:main"
+typst_exam = "typst_exam:main"
+
+[tool.pytest.ini_options]
+testpaths = ["."]
+

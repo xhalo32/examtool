@@ -1,0 +1,80 @@
+[
+  {
+    "name": "EXAM Tool Typest EXAMple",
+    "description": "\nA section can have a description\n\n",
+    "questions": [
+      {
+        "typst": "The amount of whitespace around paragraphs does not matter (althoug it does show up in EXAM...)\n\n",
+        "options": [
+          {
+            "option": "Option 1",
+            "correctOption": true
+          },
+          {
+            "option": "Option 2",
+            "correctOption": false
+          },
+          {
+            "option": "Option 3",
+            "correctOption": false
+          }
+        ],
+        "html": "<p>The amount of whitespace around paragraphs does not matter (althoug it does show up in EXAM...)</p>"
+      },
+      {
+        "typst": "\nQuestion 2 text goes here before the options\n\n\nAny text after the options is discarded\n\n",
+        "options": [
+          {
+            "option": "Option 1",
+            "correctOption": false
+          },
+          {
+            "option": "Option 2",
+            "correctOption": true
+          },
+          {
+            "option": "Option 3",
+            "correctOption": false
+          }
+        ],
+        "html": "<p>Question 2 text goes here before the options</p>\n<p>Any text after the options is discarded</p>"
+      }
+    ]
+  },
+  {
+    "name": "Section 2",
+    "description": "\nTo enable lottery, add (lottery N) to the section heading.\nLottery 1 means that the section contains one randomly chose question (out of the two).\n\n",
+    "questions": [
+      {
+        "typst": "\nQuestion 1\n\n\n",
+        "options": [
+          {
+            "option": "Option 1",
+            "correctOption": true
+          },
+          {
+            "option": "Option 2",
+            "correctOption": false
+          }
+        ],
+        "html": "<p>Question 1</p>"
+      },
+      {
+        "typst": "\nQuestion 2\n\n",
+        "options": [
+          {
+            "option": "Option 1",
+            "correctOption": false
+          },
+          {
+            "option": "Option 2",
+            "correctOption": true
+          }
+        ],
+        "html": "<p>Question 2</p>"
+      }
+    ],
+    "lotteryOn": true,
+    "lotteryItemCount": 1
+  }
+]

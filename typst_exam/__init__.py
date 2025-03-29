@@ -1,5 +1,5 @@
 import re, markdown
-from sdk import *
+from examtool.sdk import *
 from examtool import init_client
 
 def to_html(typst: str):
@@ -15,7 +15,7 @@ def parse_typst_exam(typst_code):
     
     lines = typst_code.strip().splitlines()
     section_pattern = re.compile(r'^= (.+?)( \(lottery ([0-9]+)\))?$')
-    question_pattern = re.compile(r'^== (.+)$')
+    question_pattern = re.compile(r'^==.*$')
     option_pattern = re.compile(r'^\+ (.+?)( \((correct)\))?$')
 
     for line in lines:
@@ -75,11 +75,15 @@ def parse_typst_exam(typst_code):
 
     return sections
 
-if __name__=="__main__":
+def main():
     import argparse
     from json import dumps
     parser = argparse.ArgumentParser()
-    parser.add_argument("input", help="Typst EXAM file path")
+    parser.add_argument("path", help="Typst EXAM file path")
     args = parser.parse_args()
-    with open(args.input) as f: s = f.read()
+    with open(args.path) as f: s = f.read()
     print(dumps(parse_typst_exam(s)))
+
+
+if __name__=="__main__":
+    main()
